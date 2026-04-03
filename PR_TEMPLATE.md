@@ -1,47 +1,34 @@
 # PR for daymade/claude-code-skills
 
 ## Title
-feat: add mindbreak - AI work health reminder skill
+add mindbreak skill (work break reminder)
 
-## Description
+## Body
+Hi, I made a skill that reminds you to take breaks when you've been working with Claude Code for too long.
 
-### What does this skill do?
-MindBreak monitors your continuous work time during Claude Code sessions and inserts natural break reminders at the end of responses. It tracks user activity through a hook-based timestamp system, calculates actual working duration (excluding breaks), and triggers three types of reminders: light break (45min+), meal time (11:30-12:30 / 17:30-18:30), and overtime (21:00+).
+I noticed I kept skipping lunch and working late into the night when using Claude for coding — the back-and-forth is so fast you lose track of time. So I built this to fix that for myself, and figured others might want it too.
 
-### Why is it useful?
-AI coding tools create an "achievement addiction loop" — faster output → dopamine hit → want to do more → keep going. Developers using AI often skip meals, forget to stand up, and burn out without noticing. MindBreak acts as a caring friend who gently reminds you to take care of yourself.
+How it works:
+- A hook logs a timestamp every time you send a message
+- The skill reads those timestamps and figures out how long you've been working continuously
+- If you've been at it for 45+ minutes, it adds a short reminder at the end of the response
+- It also catches meal times and late-night sessions
+- If you step away for 15+ minutes, the timer resets so it won't bug you when you come back
 
-### Key features
-- **Precise tracking**: Hook records timestamps on every message; gaps > 15min = user was away, timer resets
-- **Non-intrusive**: Reminders are appended naturally at the end of responses, never interrupting workflow
-- **Smart**: Won't remind right after you come back from a break; max 3 reminders per session
-- **Meal/overtime awareness**: Includes task summary so you can safely step away
+It's not a pomodoro timer — no forced breaks, just a gentle nudge. You can say "don't remind me" to turn it off for the session.
 
-### How to activate
-The skill activates in any work-related conversation (coding, writing, analysis, design, debugging, research, planning).
-
-### Testing
-- Tested with simulated 50-minute continuous sessions
-- Tested meal-time triggers at 11:30-12:30
-- Tested gap detection (15min+ breaks correctly reset the timer)
-- Tested "don't remind" user command
-
-### Repository
-https://github.com/ZKXSparke/mindbreak-skill
+Tested it for a few days on my own setup, works well. Repo: https://github.com/ZKXSparke/mindbreak-skill
 
 ---
 
 # PR for mhattingpete/claude-skills-marketplace
 
 ## Title
-Add MindBreak: AI work health reminder skill
+add mindbreak (break reminder skill)
 
 ## Body
-**MindBreak** — An AI work health reminder skill for Claude Code.
+A skill that tracks how long you've been working with Claude Code and reminds you to take breaks.
 
-Monitors continuous work time and gently reminds you to take breaks, eat meals, and stop overtime. Uses hook-based activity tracking for precise work session detection.
+Uses a hook to log message timestamps, then calculates continuous work time. Reminds you after 45min, at meal times, and late at night. Won't nag you after a break.
 
-- Repo: https://github.com/ZKXSparke/mindbreak-skill
-- 3 reminder types: break / meal / overtime
-- Smart gap detection: won't false-alarm after breaks
-- Non-intrusive: natural language appended to response end
+Repo: https://github.com/ZKXSparke/mindbreak-skill
