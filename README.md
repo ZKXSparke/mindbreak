@@ -75,21 +75,25 @@ Claude 生成回复 ──> Skill 读取时间戳日志
 
 ## 安装 / Installation
 
-### 通过 Claude Code 安装
+### 一键安装（推荐）
 
 ```bash
-claude plugin add /path/to/mindbreak-skill
+npx skills add ZKXSparke/mindbreak-skill
+```
+
+### 通过 Claude Code 插件系统安装
+
+```bash
+/plugin marketplace add ZKXSparke/mindbreak-skill
 ```
 
 ### 手动安装
 
-将本仓库克隆到 Claude Code 的插件目录：
-
 ```bash
-git clone https://github.com/ZKXSparke/mindbreak-skill.git ~/.claude/plugins/mindbreak
+git clone https://github.com/ZKXSparke/mindbreak-skill.git ~/.claude/skills/mindbreak
 ```
 
-安装完成后重启 Claude Code 即可生效。
+安装完成后重启 Claude Code 即可生效。Hook 会自动注册，无需手动配置。
 
 ## 提醒效果 / Reminder Examples
 
